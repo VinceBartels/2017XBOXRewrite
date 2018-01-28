@@ -1,9 +1,7 @@
 package org.usfirst.frc.team5137.robot;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class RobotMap {
 
@@ -16,14 +14,8 @@ public class RobotMap {
     public static Spark feederMotor;
     public static Spark intakeMotor;
     
-    public static DifferentialDrive hotWheels;
-    
-    
-    public static ADXRS450_Gyro gyro;
-    
     public static void init() {
 	    	leftDriveMotor = new Victor(0);
-	    	leftDriveMotor.setInverted(true);
 	    	rightDriveMotor = new Victor(1);
 	    	rightDriveMotor.setInverted(true);
 	    	
@@ -32,12 +24,5 @@ public class RobotMap {
 	    	climberMotor = new Spark (4);
 	    	feederMotor = new Spark(5);
 	    	intakeMotor = new Spark(6);
-	    	
-	    	hotWheels = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-	    	
-	    	
-	    	gyro = new ADXRS450_Gyro();
-	    	//find what port the gyro is in
-	    	
     }
 }

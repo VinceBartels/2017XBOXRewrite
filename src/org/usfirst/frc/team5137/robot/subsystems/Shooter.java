@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5137.robot.subsystems;
 
 import org.usfirst.frc.team5137.robot.RobotMap;
+import org.usfirst.frc.team5137.robot.commands.Shoot;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
