@@ -16,7 +16,7 @@ public class DriveStraight extends Command{
 	}
 	
 	protected void execute() {
-		Robot.driveTrain.driveStraight();
+		Robot.driveTrain.autoDriveStraight();
 		Timer.delay(3);
 		
 		
