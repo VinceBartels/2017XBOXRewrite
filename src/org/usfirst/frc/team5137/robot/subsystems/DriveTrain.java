@@ -3,6 +3,7 @@ package org.usfirst.frc.team5137.robot.subsystems;
 import org.usfirst.frc.team5137.robot.RobotMap;
 import org.usfirst.frc.team5137.robot.commands.ArcadeDrive;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Ultrasonic;
@@ -17,7 +18,7 @@ public class DriveTrain extends Subsystem {
 	Spark slideDriveMotor = RobotMap.slideDriveMotor;
 	
 	ADXRS450_Gyro gyro = RobotMap.gyro;
-	Ultrasonic soundMakers = RobotMap.soundMakers;
+	Ultrasonic soundMaker1 = RobotMap.soundMaker1;
 	
 	DifferentialDrive hotWheels = RobotMap.hotWheels;
 	double Kp = 0.03;
@@ -79,7 +80,8 @@ public class DriveTrain extends Subsystem {
 	public void lateralDrive() {
 		double angle = gyro.getAngle();
 		double speed = .25;
-		//double distance = soundMakers.getRangeInches();
+		double scaleFactor = 147;
+		double distance = soundMaker1.getRangeInches() *scaleFactor;
 		
 		slideDriveMotor.set(speed);
 		
