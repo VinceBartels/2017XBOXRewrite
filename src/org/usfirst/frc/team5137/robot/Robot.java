@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team5137.robot;
 
-import org.usfirst.frc.team5137.robot.commands.DriveStraight;
+import org.usfirst.frc.team5137.robot.commands.AutonoumousCommandGroup;
 import org.usfirst.frc.team5137.robot.subsystems.Climber;
 import org.usfirst.frc.team5137.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5137.robot.subsystems.Shooter;
@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
     	camera.setResolution(1280, 720);
     	
     	oi = new OI(); //must be instantiated AFTER all the subsystems
-    	autonomousCommand = new DriveStraight();
+    	autonomousCommand = new AutonoumousCommandGroup();
     	
     }
     
