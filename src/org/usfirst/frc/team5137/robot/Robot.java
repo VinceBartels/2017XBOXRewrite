@@ -12,6 +12,9 @@ import org.usfirst.frc.team5137.robot.subsystems.Climber;
 import org.usfirst.frc.team5137.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5137.robot.subsystems.Shooter;
 import org.usfirst.frc.team5137.robot.subsystems.IntakeRoller;
+
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,6 +27,7 @@ public class Robot extends TimedRobot {
     public static IntakeRoller intakeRoller;
     public static Climber climber;
     public static Timer timer = new Timer();
+    public static UsbCamera camera;
     
     public static OI oi;
 	Command autonomousCommand;
@@ -35,7 +39,9 @@ public class Robot extends TimedRobot {
 	   	shooter = new Shooter();
 	   	intakeRoller = new IntakeRoller();
     	climber = new Climber();
-    
+    	camera = CameraServer.getInstance().startAutomaticCapture();
+    	camera.setResolution(1280, 720);
+    	
     	oi = new OI(); //must be instantiated AFTER all the subsystems
     	autonomousCommand = new DriveStraight();
     	
