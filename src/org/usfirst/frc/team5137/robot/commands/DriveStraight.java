@@ -2,30 +2,32 @@ package org.usfirst.frc.team5137.robot.commands;
 
 import org.usfirst.frc.team5137.robot.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveStraight extends Command{
 	
-	boolean isFinished;
-	
-
 	public DriveStraight() {
-		requires(Robot.driveTrain);
+		requires(Robot.driveTrain);	
+	}
+	public void execute() {
 		
+		if(Robot.timer.get() < 2) {
+			Robot.driveTrain.driveStraight();
+		}
+		else if(Robot.timer.get() < 4) {
+			Robot.driveTrain.lateralDrive();
+			
+		}
+		else {
+			Robot.driveTrain.stop();
+			
+		}	
 	}
 	
-	protected void execute() {
-		Robot.driveTrain.driveStraight();
-		Timer.delay(3);
-		
-		
-		isFinished = true;
-		
-	}
 	protected void interrupted() {
 		Robot.driveTrain.stop();
 	}
+	
 	protected void stop() {
 		Robot.driveTrain.stop();
 		
@@ -34,7 +36,7 @@ public class DriveStraight extends Command{
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return isFinished;
+		return false;
 	}
 
 }

@@ -10,9 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ResetGyro extends Command {
 	ADXRS450_Gyro gyro = RobotMap.gyro;
 	
-	boolean isFinished = false;
-	
-	
 	public ResetGyro() {
 		
 	}
@@ -22,14 +19,13 @@ public class ResetGyro extends Command {
 		Timer.delay(1);
 		gyro.calibrate();
 		Timer.delay(0.5);
-		isFinished = true;
 		
 		
 	}
 
 	protected boolean isFinished() {
 		
-		return isFinished;
+		return false;
 	
 	
 	}

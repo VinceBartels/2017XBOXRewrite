@@ -13,6 +13,7 @@ import org.usfirst.frc.team5137.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5137.robot.subsystems.Shooter;
 import org.usfirst.frc.team5137.robot.subsystems.IntakeRoller;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
@@ -22,6 +23,7 @@ public class Robot extends TimedRobot {
     public static Shooter shooter;
     public static IntakeRoller intakeRoller;
     public static Climber climber;
+    public static Timer timer = new Timer();
     
     public static OI oi;
 	Command autonomousCommand;
@@ -44,8 +46,12 @@ public class Robot extends TimedRobot {
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 */
-    public void disabledInit() {
+    public static void resetTimer() {
+    	timer.reset();
     	
+    }
+    public void disabledInit() {
+    
     }
     
     public void disabledPeriodic() {
@@ -54,6 +60,8 @@ public class Robot extends TimedRobot {
     
     public void autonomousInit() {
     	if (autonomousCommand != null) autonomousCommand.start();
+    	timer.reset();
+    	timer.start();
     	
     }
     

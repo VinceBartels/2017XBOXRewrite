@@ -5,6 +5,7 @@ import org.usfirst.frc.team5137.robot.commands.ArcadeDrive;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -14,7 +15,9 @@ public class DriveTrain extends Subsystem {
 	Victor leftDriveMotor = RobotMap.leftDriveMotor;
 	Victor rightDriveMotor = RobotMap.rightDriveMotor;
 	Spark slideDriveMotor = RobotMap.slideDriveMotor;
+	
 	ADXRS450_Gyro gyro = RobotMap.gyro;
+	Ultrasonic soundMakers = RobotMap.soundMakers;
 	
 	DifferentialDrive hotWheels = RobotMap.hotWheels;
 	double Kp = 0.03;
@@ -60,14 +63,45 @@ public class DriveTrain extends Subsystem {
 		hotWheels.arcadeDrive(speed, angle*Kp);
 		
 	}
-	
-	public void slideDrive() {
-		double speed = .25;
-		slideDriveMotor.set(speed);
-		
+	public void turnRight() {
+		rightDriveMotor.set(.20);
+		leftDriveMotor.set(-.20);
+	}
+	public void turnLeft() {
+		rightDriveMotor.set(-.20);
+		leftDriveMotor.set(.20);	
+	}
+	public void angle0() {
+		rightDriveMotor.set(0);
+		leftDriveMotor.set(0);
 	}
 	
-	public void stop() {
+	public void lateralDrive() {
+		double angle = gyro.getAngle();
+		double speed = .25;
+		//double distance = soundMakers.getRangeInches();
+		
+		slideDriveMotor.set(speed);
+		
+		if(angle > 0) {
+			turnRight();
+		}
+		else if (angle < 0) {
+			turnLeft();
+			
+		}
+		/*else if(distance <12 ) {
+			stop();
+			
+		}*/
+			else if(angle == 0) {
+			angle0();
+				
+		}		
+	}
+	
+	public void stop() {;
+	
 		slideDriveMotor.set(0);
 		hotWheels.arcadeDrive(0,0);
 	}

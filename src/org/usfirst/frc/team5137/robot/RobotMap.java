@@ -2,6 +2,7 @@ package org.usfirst.frc.team5137.robot;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -16,8 +17,9 @@ public class RobotMap {
     public static Spark feederMotor;
     public static Spark intakeMotor;
     
-    public static DifferentialDrive hotWheels;
+    public static Ultrasonic soundMakers;
     
+    public static DifferentialDrive hotWheels;
     
     public static ADXRS450_Gyro gyro;
     
@@ -34,6 +36,8 @@ public class RobotMap {
 	    	intakeMotor = new Spark(6);
 	    	
 	    	hotWheels = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
+	    	
+	    	soundMakers = new Ultrasonic(1,1); // CHECK THIS
 	    	
 	    	
 	    	gyro = new ADXRS450_Gyro();
