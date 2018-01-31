@@ -76,7 +76,7 @@ public class Robot extends TimedRobot {
     }
     
     public void teleopInit() {
-    	 if (autonomousCommand != null)
+    	if (autonomousCommand != null)
 		autonomousCommand.cancel();
     }
     

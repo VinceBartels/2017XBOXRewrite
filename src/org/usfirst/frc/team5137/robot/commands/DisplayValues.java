@@ -13,7 +13,7 @@ public class DisplayValues extends Command {
 		
 	}
 	protected void execute() {
-		SmartDashboard.putNumber("Angle", RobotMap.gyro.getAngle());
+		SmartDashboard.putNumber("Angle", RobotMap.gyro.getAngle()); 
 		SmartDashboard.putNumber("Distance1", RobotMap.soundMaker1.getRangeInches()*147);
 		SmartDashboard.putNumber("Distance2", RobotMap.soundMaker2.getRangeInches()*147);
 		SmartDashboard.putNumber("Distance3", RobotMap.soundMaker3.getRangeInches()*147);
