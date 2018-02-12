@@ -3,10 +3,8 @@ package org.usfirst.frc.team5137.robot.subsystems;
 import org.usfirst.frc.team5137.robot.RobotMap;
 import org.usfirst.frc.team5137.robot.commands.ArcadeDrive;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -18,8 +16,6 @@ public class DriveTrain extends Subsystem {
 	Spark slideDriveMotor = RobotMap.slideDriveMotor;
 	
 	ADXRS450_Gyro gyro = RobotMap.gyro;
-	Ultrasonic soundMaker1 = RobotMap.soundMaker1;
-	
 	DifferentialDrive hotWheels = RobotMap.hotWheels;
 	double Kp = 0.03;
 	
@@ -80,8 +76,6 @@ public class DriveTrain extends Subsystem {
 	public void lateralDrive() {
 		double angle = gyro.getAngle();
 		double speed = .25;
-		double scaleFactor = 147;
-		double distance = soundMaker1.getRangeInches() *scaleFactor;
 		
 		slideDriveMotor.set(speed);
 		
@@ -92,10 +86,6 @@ public class DriveTrain extends Subsystem {
 			turnLeft();
 			
 		}
-		/*else if(distance <12 ) {
-			stop();
-			
-		}*/
 			else if(angle == 0) {
 			angle0();
 				

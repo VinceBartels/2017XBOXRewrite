@@ -1,9 +1,7 @@
 package org.usfirst.frc.team5137.robot;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -17,15 +15,6 @@ public class RobotMap {
     public static Spark shooterMotor;
     public static Spark feederMotor;
     public static Spark intakeMotor;
-    
-    //public static AnalogInput soundMaker1;
-    //public static AnalogInput soundMaker2;
-    //public static AnalogInput soundMaker3;
-    //public static AnalogInput soundMaker4;
-    public static Ultrasonic soundMaker1;
-    public static Ultrasonic soundMaker2;
-    public static Ultrasonic soundMaker3;
-    public static Ultrasonic soundMaker4;
     
     public static DifferentialDrive hotWheels;
     
@@ -44,15 +33,6 @@ public class RobotMap {
 	    	intakeMotor = new Spark(6);
 	    	
 	    	hotWheels = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-	    	
-	    	soundMaker1 =  new Ultrasonic(1,1);// CHECK THIS
-	    	soundMaker2 =  new Ultrasonic(2,2);
-	    	soundMaker3 =  new Ultrasonic(3,3);
-	    	soundMaker4 =  new Ultrasonic(4,4);
-	    	//soundMaker1 = new AnalogInput(0); 
-	    	//soundMaker2 = new AnalogInput(1); 
-	    	//soundMaker3 = new AnalogInput(2); 
-	    	//soundMaker4 = new AnalogInput(3); 
 	    	
 	    	gyro = new ADXRS450_Gyro();
 	    	//find what port the gyro is in
