@@ -19,7 +19,6 @@ public class DriveTrain extends Subsystem {
 	DifferentialDrive hotWheels = RobotMap.hotWheels;
 	double Kp = 0.03;
 	
-	
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ArcadeDrive());		
 	}
